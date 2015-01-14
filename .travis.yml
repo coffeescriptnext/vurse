@@ -9,6 +9,8 @@ script:
   - bin/rake lint
   - bin/rake spec:unit spec:integration
   - bin/rake spec:javascripts
+addons:
+  postgresql: 9.3
 notifications:
   webhooks:
     urls:
