@@ -1,0 +1,70 @@
+#!/bin/bash -e
+# Download a file from S3
+
+bucket="${1}"
+src="${2}"
+dest="${3}"
+timestamp=$(date -u "+%Y-%m-%d %H:%M:%S")
+signed_headers="date;host;x-amz-content-sha256;x-amz-date"
+iso_timestamp=$(date -ud "${timestamp}" "+%Y%m%dT%H%M%SZ")
+date_scope=$(date -ud "${timestamp}" "+%Y%m%d")
+date_header=$(date -ud "${timestamp}" "+%a, %d %h %Y %T %Z")
+
+payload_hash() {
+  local output=$(echo '' | shasum -ba 256)
+  echo "${output%% *}"
+}
+
+canonical_request() {
+  echo "GET"
+  echo "/${src}"
+  echo ""
+  echo "date:${date_header}"
+  echo "host:${bucket}.s3.amazonaws.com"
+  echo "x-amz-content-sha256:$(payload_hash)"
+  echo "x-amz-date:${iso_timestamp}"
+  echo ""
+  echo "${signed_headers}"
+  printf "$(payload_hash)"
+}
+
+canonical_request_hash() {
+  local output=$(canonical_request | shasum -a 256)
+  echo "${output%% *}"
+}
+
+string_to_sign() {
+  echo "AWS4-HMAC-SHA256"
+  echo "${iso_timestamp}"
+  echo "${date_scope}/${AWS_REGION}/s3/aws4_request"
+  printf "$(canonical_request_hash)"
+}
+
+signature_key() {
+  local secret=$(printf "AWS4${AWS_SECRET_ACCESS_KEY?}" | hex_key)
+  local date_key=$(printf ${date_scope} | hmac_sha256 "${secret}" | hex_key)
+  local region_key=$(printf ${AWS_REGION} | hmac_sha256 "${date_key}" | hex_key)
+  local service_key=$(printf "s3" | hmac_sha256 "${region_key}" | hex_key)
+  printf "aws4_request" | hmac_sha256 "${service_key}" | hex_key
+}
+
+hex_key() {
+  xxd -p -c 256
+}
+
+hmac_sha256() {
+  local hexkey=$1
+  openssl dgst -binary -sha256 -mac HMAC -macopt hexkey:${hexkey}
+}
+
+signature() {
+  string_to_sign | hmac_sha256 $(signature_key) | hex_key | sed "s/^.* //"
+}
+
+curl --tcp-nodelay -qsfL \
+  "https://${bucket}.s3.amazonaws.com/${src}" \
+  -H "Authorization: AWS4-HMAC-SHA256 Credential=${AWS_ACCESS_KEY_ID?}/${date_scope}/${AWS_REGION}/s3/aws4_request,SignedHeaders=${signed_headers},Signature=$(signature)" \
+  -H "Date: ${date_header}" \
+  -H "x-amz-content-sha256: $(payload_hash)" \
+  -H "x-amz-date: ${iso_timestamp}" \
+  -o ${dest}

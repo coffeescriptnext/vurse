@@ -1,0 +1,60 @@
+#!/bin/bash -e
+# Downloads and installs cached bundle from S3
+
+export PROJECT_PATH="$(cd "$(dirname "${0}")/.." && pwd)"
+export SCRIPTS_PATH="${PROJECT_PATH}/bin"
+export PATH="${SCRIPTS_PATH}:${PATH}"
+
+md5_checksum() {
+  local file=${1}
+  local output=$(md5sum "${file}")
+  echo "${output%% *}"
+}
+
+gemfile="${BUNDLE_GEMFILE:-Gemfile}"
+gemfile_name="${gemfile##*/}"
+gemfile_lock="${gemfile}.lock"
+checksum="$(md5_checksum "${gemfile_lock}")"
+cache_bucket="${CACHED_BUNDLE_BUCKET}"
+cache_prefix="${1}"
+cache_uname="$(uname | tr '[:upper:]' '[:lower:]')"
+cache_ruby="$(ruby -v | cut -d ' ' -f 2)"
+cache_filename="bundle-${cache_uname}-${cache_ruby}-${gemfile_name}-${checksum}.tgz"
+cache_src="${cache_prefix}/${cache_filename}"
+cache_dst="${PROJECT_PATH}/${cache_filename}"
+bundle_install_cmd="bundle install --deployment --quiet --without debugger docs production --jobs=3 --retry=3 --path ${PROJECT_PATH}/vendor/bundle"
+
+if [[ "${TRAVIS_PULL_REQUEST}" == 'false' ]];
+then
+  echo "------> Origin branch build -- using cached bundle"
+else
+  echo "------> Pull request build -- not using cached bundle"
+  $bundle_install_cmd
+  exit
+fi
+
+echo "------> Attempting to download cached bundle from ${cache_prefix}/${cache_filename}"
+if s3-download "${cache_bucket}" "${cache_src}" "${cache_dst}"
+then
+  echo "------> Unpacking ${cache_filename} to vendor/bundle"
+  pushd $PROJECT_PATH > /dev/null
+  tar xzf ${cache_dst}
+  popd > /dev/null
+else
+  echo "------> Cached bundle does not exist!"
+  rm -f ${cache_dst}
+fi
+
+pushd $PROJECT_PATH > /dev/null
+echo "------> Installing bundle"
+  $bundle_install_cmd
+
+  if [[ ! -f "${cache_dst}" ]]
+  then
+    echo "------> Packing vendor/bundle to ${cache_filename}"
+    tar czf "${cache_dst}" vendor/bundle/
+
+    echo "------> Uploading ${cache_filename} to S3 as ${cache_prefix}/${cache_filename}"
+    s3-upload "${cache_filename}" "${cache_bucket}" "${cache_prefix}"
+  fi
+popd > /dev/null
