@@ -22,7 +22,7 @@ cache_ruby="$(ruby -v | cut -d ' ' -f 2)"
 cache_filename="bundle-${cache_uname}-${cache_ruby}-${gemfile_name}-${checksum}.tgz"
 cache_src="${cache_prefix}/${cache_filename}"
 cache_dst="${PROJECT_PATH}/${cache_filename}"
-bundle_install_cmd="bundle install --deployment --without debugger docs production --jobs=3 --retry=3 --path ${PROJECT_PATH}/vendor/bundle"
+bundle_install_cmd="bundle install --deployment --without debugger docs production --jobs 3 --retry 3 --path ${PROJECT_PATH}/vendor/bundle"
 
 if [[ "${TRAVIS_PULL_REQUEST}" == 'false' ]];
 then
