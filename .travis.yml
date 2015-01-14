@@ -7,7 +7,8 @@ before_script:
   - bin/rake db:create RAILS_ENV=test
 script:
   - bin/rake lint
-  - bin/rake spec:unit spec:integration
+  - bin/rake spec:unit
+  - bin/rake spec:features
   - bin/rake spec:javascripts
 addons:
   postgresql: 9.3
