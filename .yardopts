@@ -1,0 +1,14 @@
+--asset docs/assets:assets
+--charset utf-8
+--embed-mixin ClassMethods
+--markup-provider kramdown
+--markup markdown
+--no-private
+--quiet
+--protected
+--readme README.md
+app/**/*.rb
+lib/**/*.rb
+--
+CONTRIBUTING.md
+LICENSE.txt

@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+require 'pathname'
+
+APP_ROOT = Pathname.new(File.expand_path('../../',  __FILE__))
+RESET = ENV['RESET']
+
+Dir.chdir APP_ROOT do
+  puts '------> Installing dependencies'
+  system 'gem install bundler --conservative'
+  system 'bundle check || bundle install --path vendor/bundle'
+
+  if RESET
+    puts '------> Resetting database'
+    system 'bin/rake db:drop'
+    system 'bin/rake db:drop RAILS_ENV=test'
+  end
+
+  puts '------> Preparing database'
+  system 'bin/rake db:setup'
+  system 'bin/rake db:create RAILS_ENV=test'
+
+  puts '------> Removing old logs and tempfiles'
+  system 'rm -f log/*'
+  system 'rm -rf tmp/*'
+
+  puts '------> Running test suite'
+  system 'bin/rake lint'
+  system 'bin/rake spec:unit spec:features'
+  system 'bin/rake spec:javascripts'
+
+  puts '------> Setup complete'
+  puts '  * Start unicorn with `foreman start`'
+end

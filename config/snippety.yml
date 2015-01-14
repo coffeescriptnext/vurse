@@ -1,0 +1,29 @@
+---
+default: &default
+  demo_mode: <%= ENV['SNIPPETY_DEMO_MODE'] %>
+  log_level: <%= ENV.fetch('SNIPPETY_LOG_LEVEL', 'info') %>
+  log_root: <%= Rails.root.join('log') %>
+  log_stdout: <%= ENV['SNIPPETY_LOG_STDOUT'] %>
+  serve_static_files: <%= ENV['SNIPPETY_SERVE_STATIC_FILES'] %>
+  session_key: <%= ENV.fetch('SNIPPETY_SESSION_KEY', '_snippety_session') %>
+  email_delivery_method: <%= ENV.fetch('SNIPPETY_EMAIL_DELIVERY_METHOD', 'sendmail') %>
+  smtp_address: <%= ENV['SNIPPETY_SMTP_ADDRESS'] %>
+  smtp_authentication: <%= ENV['SNIPPETY_SMTP_AUTHENTICATION'] %>
+  smtp_domain: <%= ENV['SNIPPETY_SMTP_DOMAIN'] %>
+  smtp_password: <%= ENV['SNIPPETY_SMTP_PASSWORD'] %>
+  smtp_port: <%= ENV['SNIPPETY_SMTP_PORT'] %>
+  smtp_user_name: <%= ENV['SNIPPETY_SMTP_USERNAME'] %>
+  tld_host: <%= ENV.fetch('SNIPPETY_TLD_HOST', 'localhost') %>
+  tld_protocol: <%= ENV.fetch('SNIPPETY_TLD_PROTOCOL', 'http') %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  tld_host: <%= ENV.fetch('SNIPPETY_TLD_HOST', 'snippety.test') %>
+
+production:
+  <<: *default
+  log_level: <%= ENV.fetch('SNIPPETY_LOG_LEVEL', 'debug') %>
+  tld_protocol: <%= ENV.fetch('SNIPPETY_TLD_PROTOCOL', 'https') %>

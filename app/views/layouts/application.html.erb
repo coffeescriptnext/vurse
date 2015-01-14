@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Snippety</title>
+    <meta name="description" content="A private pastebin for individuals and teams">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= csrf_meta_tags %>
+
+    <%= content_for?(:stylesheets) ? yield(:stylesheets) : stylesheet_link_tag('snippety', media: 'all') %>
+  </head>
+  <body>
+    <%= yield(:navigation) %>
+
+    <%= content_for?(:content) ? yield(:content) : yield %>
+
+    <%= content_for?(:javascripts) ? yield(:javascripts) : javascript_include_tag('snippety') %>
+    <%= yield(:view_javascripts) %>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+---
+AllCops:
+  Include:
+    - config.ru
+    - Gemfile
+    - Rakefile
+    - lib/tasks/**/*.rake
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - vendor/**/*
+  RunRailsCops: true
+
+# Handle via inch instead.
+Style/Documentation:
+  Enabled: false
+
+Style/FileName:
+  Exclude:
+    - !ruby/regexp /(\d+)-(\w+)\.rb$/
+    - !ruby/regexp /development\.rb$/
+    - Gemfile
+    - Rakefile
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/**/*
+    - lib/tasks/**/*
+
+Metrics/LineLength:
+  Max: 140
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/**/*
+
+Rails/Output:
+  Exclude:
+    - config/unicorn.rb

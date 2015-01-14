@@ -1,0 +1,16 @@
+---
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: snippety_development
+
+test:
+  <<: *default
+  database: snippety_test
+
+production:
+  url: <%= ENV['SNIPPETY_DATABASE_URL'] %>
