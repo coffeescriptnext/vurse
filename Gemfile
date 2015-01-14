@@ -6,7 +6,7 @@ gem 'dotenv-rails', '~> 1.0', groups: %i(development)
 
 gem 'ace-rails-ap', '~> 3.0'
 gem 'active_model_serializers', '~> 0.9'
-gem 'autoprefixer-rails', '~> 4.0'
+gem 'autoprefixer-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'bootstrap-switch-rails', '~> 3.3'
 gem 'devise', '~> 3.4'
