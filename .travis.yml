@@ -7,7 +7,9 @@ install: bin/cached-bundle $TRAVIS_REPO_SLUG
 before_script:
   - bin/rake db:create RAILS_ENV=test
 script:
-  - bin/rake
+  - bin/rake lint
+  - bin/rake spec:unit spec:features
+  - bin/rake spec:javascripts
 env:
   global:
     # AWS_ACCESS_KEY_ID for bin/cached-bundle
