@@ -1,3 +1,4 @@
+# Controller for CRUDing snippets.
 class SnippetsController < ApplicationController
   before_action :authenticate_user!, except: %i(new)
 

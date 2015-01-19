@@ -1,3 +1,4 @@
+# Controller for user registration and self-service account management.
 class RegistrationsController < Devise::RegistrationsController
   ALLOWED_CREATE_PARAMS = %i(email username password)
   ALLOWED_UPDATE_PARAMS = %i(email username name password current_password)
