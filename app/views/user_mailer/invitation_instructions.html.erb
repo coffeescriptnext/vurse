@@ -1,0 +1,25 @@
+<table class="row">
+  <tr>
+    <td class="wrapper last">
+      <table class="twelve columns">
+        <tr>
+          <td class="center">
+            <center>
+              <h1>You've been invited to join Snippety!</h1>
+
+              <p>Use the link below to accept your invitation and create your account.</p>
+
+              <table class="button radius success">
+                <tr>
+                  <td>
+                    <%= link_to 'Accept invitation', accept_user_invitation_url(@resource, invitation_token: @token) %>
+                  </td>
+                </tr>
+              </table>
+            </center>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

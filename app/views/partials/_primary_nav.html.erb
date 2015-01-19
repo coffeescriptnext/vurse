@@ -1,0 +1,16 @@
+<nav class="navbar navbar-static-top navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to root_path, class: 'navbar-brand' do %>Snippety<% end -%>
+    </div>
+
+    <ul class="nav navbar-nav navbar-left">
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><p class="navbar-text"><%= current_user.username %></p></li>
+      <li><%= link_to edit_user_registration_path do %><i class="fa fa-cogs"></i><span class="sr-only">&nbsp;&nbsp;Settings</span><% end -%></li>
+      <li><%= link_to destroy_user_session_path do %><i class="fa fa-sign-out"></i>&nbsp;<span class="sr-only">Log out</span><% end -%></li>
+    </ul>
+  </div>
+</nav>

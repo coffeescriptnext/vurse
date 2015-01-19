@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="<%= 'authenticated' if user_signed_in? %>">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +12,13 @@
     <%= content_for?(:stylesheets) ? yield(:stylesheets) : stylesheet_link_tag('snippety', media: 'all') %>
   </head>
   <body>
-    <%= yield(:navigation) %>
+    <%= render 'partials/primary_nav' if user_signed_in? %>
+    <%= yield(:secondary_nav) %>
+    <%= render 'partials/flash_messages' if user_signed_in? %>
 
     <%= content_for?(:content) ? yield(:content) : yield %>
+
+    <%= render 'partials/footer' if user_signed_in? %>
 
     <%= content_for?(:javascripts) ? yield(:javascripts) : javascript_include_tag('snippety') %>
     <%= yield(:view_javascripts) %>

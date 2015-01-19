@@ -1,0 +1,12 @@
+.footer {
+  background-color: $gray-darker;
+  bottom: 0;
+  color: $gray-lighter;
+  height: 60px;
+  position: absolute;
+  width: 100%;
+
+  p {
+    margin-top: 10px;
+  }
+}

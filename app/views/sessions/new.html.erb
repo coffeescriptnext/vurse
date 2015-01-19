@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="col-lg-4 col-lg-offset-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h1 class="panel-title">Log in</h1></div>
+      <div class="panel-body">
+        <%- if flash.any? %>
+          <%- flash.each do |type, message| %>
+            <div class="alert alert-<%= type %>"><p><%= message %></p></div>
+          <% end -%>
+        <% end -%>
+
+        <%= form_for(resource, as: resource_name, url: user_session_path, html: { role: 'form' }) do |f| %>
+          <div class="form-group">
+            <%= f.label :login, 'Email or username', class: 'sr-only' %>
+            <%= f.text_field :login, autofocus: true, placeholder: 'Email or username', class: 'form-control input-lg' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password, class: 'sr-only' %>
+            <%= f.password_field :password, autocomplete: 'off', placeholder: 'Password', class: 'form-control input-lg' %>
+          </div>
+
+          <div class="checkbox">
+            <%= f.label :remember_me do %>
+              <%= f.check_box :remember_me %>&nbsp;Remember me for <%= Rails.configuration.snippety[:devise_remember_for] %> days
+            <% end %>
+          </div>
+
+          <%= f.submit 'Log in', class: 'btn btn-lg btn-block btn-primary' %>
+        <% end %>
+      </div>
+      <%= render 'partials/authentication_links' %>
+    </div>
+  </div>
+</div>

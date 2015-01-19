@@ -1,2 +1,13 @@
 @import 'snippety/settings';
 @import 'snippety/vendor';
+
+// Bootstrapping
+@import 'snippety/scaffolding';
+
+// Mixins
+
+// Components
+@import 'snippety/components/alerts';
+@import 'snippety/components/footer';
+
+// Views

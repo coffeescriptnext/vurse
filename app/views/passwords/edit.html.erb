@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="col-lg-4 col-lg-offset-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h1 class="panel-title">Change password</h1></div>
+      <div class="panel-body">
+        <%- if flash.any? %>
+          <%- flash.each do |type, message| %>
+            <div class="alert alert-<%= type %>"><p><%= message %></p></div>
+          <% end -%>
+        <% end -%>
+
+        <%= form_for(resource, as: resource_name, url: update_user_password_path, html: { method: :patch, role: 'form' }) do |f| %>
+          <%= devise_error_messages! %>
+
+          <%= f.hidden_field :reset_password_token %>
+
+          <div class="form-group">
+            <%= f.label :password, 'New password', class: 'sr-only' %>
+            <%= f.password_field :password, autofocus: true, autocomplete: 'off', placeholder: 'New password', class: 'form-control input-lg' %>
+          </div>
+
+          <%= f.submit 'Change password', class: 'btn btn-lg btn-block btn-primary' %>
+        <% end %>
+      </div>
+      <%= render 'partials/authentication_links' %>
+    </div>
+  </div>
+</div>

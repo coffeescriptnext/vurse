@@ -1,9 +1,19 @@
 ---
 default: &default
   demo_mode: <%= ENV['SNIPPETY_DEMO_MODE'] %>
+  devise_allow_unconfirmed_access_for: <%= ENV.fetch('SNIPPETY_DEVISE_ALLOW_UNCONFIRMED_ACCESS_FOR', 7) %>
+  devise_invite_for: <%= ENV.fetch('SNIPPETY_DEVISE_INVITE_FOR', 0) %>
+  devise_invitation_limit: <%= ENV['SNIPPETY_DEVISE_INVITATION_LIMIT'] %>
+  devise_mailer_sender: <%= ENV.fetch('SNIPPETY_DEVISE_MAILER_SENDER', 'admin@localhost') %>
+  devise_maximum_attempts: <%= ENV.fetch('SNIPPETY_DEVISE_MAXIMUM_ATTEMPTS', 10) %>
+  devise_remember_for: <%= ENV.fetch('SNIPPETY_DEVISE_REMEMBER_FOR', 30) %>
+  devise_reset_password_within: <%= ENV.fetch('SNIPPETY_DEVISE_RESET_PASSWORD_WITHIN', 6 * 60) %>
+  devise_stretches: <%= ENV.fetch('SNIPPETY_DEVISE_STRETCHES', 10) %>
+  devise_unlock_in: <%= ENV.fetch('SNIPPETY_DEVISE_UNLOCK_IN', 60) %>
   log_level: <%= ENV.fetch('SNIPPETY_LOG_LEVEL', 'info') %>
   log_root: <%= Rails.root.join('log') %>
   log_stdout: <%= ENV['SNIPPETY_LOG_STDOUT'] %>
+  registration_enabled: <%= ENV.fetch('SNIPPETY_REGISTRATION_ENABLED', 'true') %>
   serve_static_files: <%= ENV['SNIPPETY_SERVE_STATIC_FILES'] %>
   session_key: <%= ENV.fetch('SNIPPETY_SESSION_KEY', '_snippety_session') %>
   email_delivery_method: <%= ENV.fetch('SNIPPETY_EMAIL_DELIVERY_METHOD', 'sendmail') %>

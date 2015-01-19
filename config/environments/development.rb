@@ -8,7 +8,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # ActionMailer configuration
-  config.action_mailer.preview_path = Rails.root.join('lib/mailer_previews')
+  config.action_mailer.preview_path = Rails.root.join('spec/mailers/previews')
   config.action_mailer.raise_delivery_errors = false
 
   # ActionView configuration

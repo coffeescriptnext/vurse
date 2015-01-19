@@ -1,0 +1,5 @@
+<footer class="footer">
+  <div class="container">
+    <p class="text-center">Snippety v<%= Snippety::VERSION::STRING %><%= "@#{File.read(Rails.root.join('REVISION'))}" if File.exist?(Rails.root.join('REVISION')) %> &bull; &copy; 2015 Tony Burns</p>
+  </div>
+</footer>

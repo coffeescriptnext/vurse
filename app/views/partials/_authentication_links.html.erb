@@ -1,0 +1,14 @@
+<ul class="list-group">
+<%- if controller_name != 'sessions' %>
+  <li class="list-group-item"><%= link_to "Log in", new_user_session_path %></li>
+<% end -%>
+<%- if controller_name != 'passwords' %>
+  <li class="list-group-item"><%= link_to "Forgot your password?", new_user_password_path %></li>
+<% end -%>
+<%- if controller_name != 'confirmations' %>
+  <li class="list-group-item"><%= link_to "Need email confirmation instructions?", new_user_confirmation_path %></li>
+<% end -%>
+<%- if controller_name != 'unlocks' %>
+  <li class="list-group-item"><%= link_to "Locked out of your account?", new_user_unlock_path %></li>
+<% end -%>
+</ul>

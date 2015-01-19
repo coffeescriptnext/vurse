@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col-lg-4 col-lg-offset-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h1 class="panel-title">Resend confirmation instructions</h1></div>
+      <div class="panel-body">
+        <%- if flash.any? %>
+          <%- flash.each do |type, message| %>
+            <div class="alert alert-<%= type %>"><p><%= message %></p></div>
+          <% end -%>
+        <% end -%>
+
+        <%= form_for(resource, as: resource_name, url: user_confirmation_path, html: { method: :post, role: 'form' }) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="form-group">
+            <%= f.label :login, 'Email or username', class: 'sr-only' %>
+            <%= f.text_field :login, autofocus: true, placeholder: 'Email or username', class: 'form-control input-lg' %>
+          </div>
+
+          <%= f.submit 'Resend confirmation instructions', class: 'btn btn-lg btn-block btn-primary' %>
+        <% end %>
+      </div>
+      <%= render 'partials/authentication_links' %>
+    </div>
+  </div>
+</div>

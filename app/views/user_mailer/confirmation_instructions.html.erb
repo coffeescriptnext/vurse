@@ -1,0 +1,25 @@
+<table class="row">
+  <tr>
+    <td class="wrapper last">
+      <table class="twelve columns">
+        <tr>
+          <td class="center">
+            <center>
+              <h1>Welcome to Snippety!</h1>
+
+              <p>Please confirm your email address using the link below.</p>
+
+              <table class="button radius success">
+                <tr>
+                  <td>
+                    <%= link_to 'Confirm email address', show_user_confirmation_url(@resource, confirmation_token: @token) %>
+                  </td>
+                </tr>
+              </table>
+            </center>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
