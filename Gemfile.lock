@@ -169,7 +169,7 @@ GEM
     kgio (2.9.3)
     kramdown (1.5.0)
     libv8 (3.16.14.7)
-    lograge (0.3.0)
+    lograge (0.3.1)
       actionpack (>= 3)
       activesupport (>= 3)
       railties (>= 3)
