@@ -11,4 +11,5 @@ app/**/*.rb
 lib/**/*.rb
 --
 CONTRIBUTING.md
+INSTALLATION.md
 LICENSE.txt
