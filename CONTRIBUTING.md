@@ -1,21 +1,21 @@
-# Contributing to Snippety
+# Contributing to Vurse
 
-Thank you for interest in contributing to Snippety!
+Thank you for interest in contributing to Vurse!
 
-Snippety uses GitHub issues for discussion, issues, and contributions. There are two main ways to contribute to Snippety:
+Vurse uses GitHub issues for discussion, issues, and contributions. There are two main ways to contribute to Vurse:
 
-One of the goals of Snippety is to make it easy for the community to contribute changes. To that end, here are detailed guidelines on how to
-contribute to Snippety.
+One of the goals of Vurse is to make it easy for the community to contribute changes. To that end, here are detailed guidelines on how to
+contribute to Vurse.
 
-* Report an issue or make a feature request at Snippety's [issue tracker][issue-tracker]
-* Contribute features and fix bugs yourself by contributing code to Snippety (see below).
+* Report an issue or make a feature request at Vurse's [issue tracker][issue-tracker]
+* Contribute features and fix bugs yourself by contributing code to Vurse (see below).
 
-[issue-tracker]: https://github.com/tabolario/snippety/issues
+[issue-tracker]: https://github.com/tabolario/vurse/issues
 
 ## Issues
 
-Issue tracking for Snippety happens on GitHub Issues. If you've found a bug or have a feature that you'd like to see implemented, please
-report it on the issue tracker. Discussion-only issues are also welcome.
+Issue tracking for Vurse happens on GitHub Issues. If you've found a bug or have a feature that you'd like to see implemented, please report
+it on the issue tracker. Discussion-only issues are also welcome.
 
 ### Bug reports
 
@@ -24,7 +24,7 @@ To minimize the time spent by maintainers in diagnosing and fixing bugs, please 
 ```text
 ### Version
 
-[Version of Snippety deployed, or commit SHA if installed from Git]
+[Version of Vurse deployed, or commit SHA if installed from Git]
 
 ### Environment
 
@@ -33,7 +33,7 @@ Ruby version: [Version of Ruby installed (run `ruby --version`)
 PostgreSQL version: [Version of PostgreSQL installed (run `postgres --version`)
 Browser and version: [Which browser(s) and version(s) (i.e. Chrome 39)]
 
-[Include any other information about your environment that might be helpful, such as your reverse proxy configuration if running Snippety
+[Include any other information about your environment that might be helpful, such as your reverse proxy configuration if running Vurse
 behind something like Nginx or Apache.]
 
 ### Scenario
@@ -57,13 +57,13 @@ Please include screenshots if applicable.
 
 ### Security issues
 
-If you have discovered an issue with Snippety of a sensitive nature that could compromise the security of Snippety users, **please report it
+If you have discovered an issue with Vurse of a sensitive nature that could compromise the security of Vurse users, **please report it
 securely by sending a GPG-encrypted message instead of filing an issue on GitHub**. Please use the following key and send your report to
 [tony@tabolario.com](mailto:tony@tabolario.com).
 
-[https://raw.github.com/tabolario/snippety/tabolario.gpg][tabolario-gpg]
+[https://raw.github.com/tabolario/vurse/tabolario.gpg][tabolario-gpg]
 
-[tabolario-gpg]: https://raw.github.com/tabolario/snippety/tabolario.gpg
+[tabolario-gpg]: https://raw.github.com/tabolario/vurse/tabolario.gpg
 
 The fingerprint of the key should be:
 
@@ -71,14 +71,14 @@ The fingerprint of the key should be:
 
 ### Discussions
 
-Issues to discuss the architecture, design, and functionality of Snippety are welcome on the issue tracker, and this is where these
-discussions are preferred so that we can track them and associate them with issues if necessary.
+Issues to discuss the architecture, design, and functionality of Vurse are welcome on the issue tracker, and this is where these discussions
+are preferred so that we can track them and associate them with issues if necessary.
 
 ## Pull requests
 
 ### Getting started
 
-* [Fork](https://github.com/tabolario/snippety/fork) the repository on GitHub.
+* [Fork](https://github.com/tabolario/vurse/fork) the repository on GitHub.
 * Set up your local development environment with `bin/setup`.
 * Make sure the test suite runs for you: `bin/rake`
 
@@ -94,13 +94,13 @@ discussions are preferred so that we can track them and associate them with issu
   tests.**
 * Ensure that the entire test suite passes with `bin/rake`.
 * Create a pull request on GitHub for your contribution.
-* Check [Travis CI](https://travis-ci.org/tabolario/snippety/pull_requests) for your pull request. **Only green pull requests will
+* Check [Travis CI](https://travis-ci.org/tabolario/vurse/pull_requests) for your pull request. **Only green pull requests will
   be merged.**
 
 ### Trivial changes
 
-Certain types of changes do not need to undergo the same process as changes involving the functionality of Snippety (e.g. running
-tests and static analysis tools). These types of changes include:
+Certain types of changes do not need to undergo the same process as changes involving the functionality of Vurse (e.g. running tests and
+static analysis tools). These types of changes include:
 
 * Changes to "root documentation" like `README.md`, `CHANGELOG.md`, documents in the `docs` directory, and this document
 * Changes to build scripts, and other development configuration files
@@ -113,8 +113,8 @@ Trivial changes **do** need to pass the linting tasks (`bin/rake lint`) if they 
 
 ## Getting help
 
-A number of support channels are available for getting help with Snippety:
+A number of support channels are available for getting help with Vurse:
 
-* [![Gitter chat](https://badges.gitter.im/tabolario/snippety.png)](https://gitter.im/tabolario/snippety)
+* [![Gitter chat](https://badges.gitter.im/tabolario/vurse.png)](https://gitter.im/tabolario/vurse)
 * Email: [tony@tabolario.com](mailto:tony@tabolario.com)
 * Twitter: [@tabolario](https://twitter.com/tabolario)

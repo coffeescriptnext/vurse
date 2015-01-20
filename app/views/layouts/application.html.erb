@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Snippety</title>
+    <title>Vurse</title>
     <meta name="description" content="A private pastebin for individuals and teams">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= csrf_meta_tags %>
 
-    <%= content_for?(:stylesheets) ? yield(:stylesheets) : stylesheet_link_tag('snippety', media: 'all') %>
+    <%= content_for?(:stylesheets) ? yield(:stylesheets) : stylesheet_link_tag('vurse', media: 'all') %>
   </head>
   <body>
     <%= render 'partials/primary_nav' if user_signed_in? %>
@@ -20,7 +20,7 @@
 
     <%= render 'partials/footer' if user_signed_in? %>
 
-    <%= content_for?(:javascripts) ? yield(:javascripts) : javascript_include_tag('snippety') %>
+    <%= content_for?(:javascripts) ? yield(:javascripts) : javascript_include_tag('vurse') %>
     <%= yield(:view_javascripts) %>
   </body>
 </html>

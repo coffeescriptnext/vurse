@@ -1,4 +1,4 @@
-app_config = Rails.configuration.snippety
+app_config = Rails.configuration.vurse
 
 Devise.setup do |config|
   # ORM configuration

@@ -6,11 +6,11 @@ default: &default
 
 development:
   <<: *default
-  database: snippety_development
+  database: vurse_development
 
 test:
   <<: *default
-  database: snippety_test
+  database: vurse_test
 
 production:
-  url: <%= ENV['SNIPPETY_DATABASE_URL'] %>
+  url: <%= ENV['VURSE_DATABASE_URL'] %>

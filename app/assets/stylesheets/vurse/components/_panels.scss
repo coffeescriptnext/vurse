@@ -1,0 +1,21 @@
+.panel-heading {
+  display: table;
+  width: 100%;
+
+  h1 {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .actions {
+    display: table-cell;
+    float: right;
+    margin-bottom: 0;
+    vertical-align: middle;
+
+    li {
+      display: inline-block;
+      list-style-type: none;
+    }
+  }
+}

@@ -1,1 +1,1 @@
-# Installing Snippety
+# Installing Vurse

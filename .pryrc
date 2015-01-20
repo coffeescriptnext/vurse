@@ -23,5 +23,5 @@ Pry.config.prompt_name = begin
     'development'.colorize(:light_blue).underline
   end
 
-  "#{'snippety'.bold} [#{environment_name}] "
+  "#{'vurse'.bold} [#{environment_name}] "
 end

@@ -1,16 +1,16 @@
-# Snippety
+# Vurse
 
-[![Dependency Status](https://img.shields.io/gemnasium/tabolario/snippety.svg?style=flat)][dependency-status]
-[![Build Status](https://img.shields.io/travis/tabolario/snippety.svg?style=flat)][build-status]
-[![Code Climate](https://img.shields.io/codeclimate/github/tabolario/snippety.svg?style=flat)][code-climate]
-[![Coverage Status](https://img.shields.io/coveralls/tabolario/snippety.svg?style=flat)][coverage-status]
-[![Inline docs](http://inch-ci.org/github/tabolario/snippety.svg?branch=master&style=flat)][inline-docs]
+[![Dependency Status](https://img.shields.io/gemnasium/tabolario/vurse.svg?style=flat)][dependency-status]
+[![Build Status](https://img.shields.io/travis/tabolario/vurse.svg?style=flat)][build-status]
+[![Code Climate](https://img.shields.io/codeclimate/github/tabolario/vurse.svg?style=flat)][code-climate]
+[![Coverage Status](https://img.shields.io/coveralls/tabolario/vurse.svg?style=flat)][coverage-status]
+[![Inline docs](http://inch-ci.org/github/tabolario/vurse.svg?branch=master&style=flat)][inline-docs]
 
-[dependency-status]: https://gemnasium.com/tabolario/snippety
-[build-status]: https://travis-ci.org/tabolario/snippety
-[code-climate]: https://codeclimate.com/github/tabolario/snippety
-[coverage-status]: https://coveralls.io/r/tabolario/snippety?branch=master
-[inline-docs]: http://inch-ci.org/github/tabolario/snippety
+[dependency-status]: https://gemnasium.com/tabolario/vurse
+[build-status]: https://travis-ci.org/tabolario/vurse
+[code-climate]: https://codeclimate.com/github/tabolario/vurse
+[coverage-status]: https://coveralls.io/r/tabolario/vurse?branch=master
+[inline-docs]: http://inch-ci.org/github/tabolario/vurse
 
 **Warning: This application is currently in its initial iteration and may not yet function as shown here in the readme.**
 
@@ -36,9 +36,9 @@ A private pastebin for individuals and teams.
 
 ## Documentation
 
-Full online help for Snippety is available in each installation at `/help`.
+Full online help for Vurse is available in each installation at `/help`.
 
-See the [YARD documentation](http://rdoc.info/github/tabolario/snippety/frames) for the latest RDoc documentation.
+See the [YARD documentation](http://rdoc.info/github/tabolario/vurse/frames) for the latest RDoc documentation.
 
 Generate local documentation with YARD (output to the `doc` directory):
 
@@ -46,8 +46,8 @@ Generate local documentation with YARD (output to the `doc` directory):
 
 ## Support
 
-* [![Gitter chat](https://badges.gitter.im/tabolario/snippety.png)](https://gitter.im/tabolario/snippety)
-* [GitHub Issues](https://github.com/tabolario/snippety/issues)
+* [![Gitter chat](https://badges.gitter.im/tabolario/vurse.png)](https://gitter.im/tabolario/vurse)
+* [GitHub Issues](https://github.com/tabolario/vurse/issues)
 * Email: [tony@tabolario.com](mailto:tony@tabolario.com)
 * Twitter: [@tabolario](https://twitter.com/tabolario)
 
@@ -64,7 +64,7 @@ Generate local documentation with YARD (output to the `doc` directory):
 
 ### Setup
 
-The easiest way to set up a local development environment for Snippety is via:
+The easiest way to set up a local development environment for Vurse is via:
 
     $ bin/setup
 
@@ -99,7 +99,7 @@ run at once via:
 
 #### Ruby
 
-Snippety follows the [Ruby Style Guide][ruby-style-guide] for Ruby coding conventions and uses [RuboCop][rubocop] to enforce them. The
+Vurse follows the [Ruby Style Guide][ruby-style-guide] for Ruby coding conventions and uses [RuboCop][rubocop] to enforce them. The
 configuration for RuboCop can be found in [.rubocop.yml][rubocop-yml]. The Ruby linter can be run by itself via:
 
     $ bin/rake lint:ruby
@@ -111,18 +111,18 @@ can be run by itself via:
 
 [rubocop]: https://github.com/bbatsov/rubocop
 [ruby-style-guide]: https://github.com/bbatsov/ruby-style-guide
-[rubocop-yml]: https://github.com/tabolario/snippety/blob/master/.rubocop.yml
+[rubocop-yml]: https://github.com/tabolario/vurse/blob/master/.rubocop.yml
 [inch]: http://trivelop.de/inch/
 
 #### JavaScript
 
-[jshint][jshint] is used to enforce JavaScript coding conventions. The configuration for JSHint can be found in the
-[rake task][jshint-task]. The JavaScript linter can be run by itself via:
+[jshint][jshint] is used to enforce JavaScript coding conventions. The configuration for JSHint can be found in the [rake
+task][jshint-task]. The JavaScript linter can be run by itself via:
 
     $ bin/rake lint:javascripts
 
 [jshint]: http://jshint.com/
-[jshint-task]: https://github.com/tabolario/snippety/blob/master/lib/tasks/lint.rake#11
+[jshint-task]: https://github.com/tabolario/vurse/blob/master/lib/tasks/lint.rake#11
 
 #### SCSS
 
@@ -132,17 +132,17 @@ can be run by itself via:
     $ bin/rake lint:stylesheets
 
 [scss-lint]: https://github.com/causes/scss-lint
-[scss-lint-yml]: https://github.com/tabolario/snippety/blob/master/.scss-lint.yml
+[scss-lint-yml]: https://github.com/tabolario/vurse/blob/master/.scss-lint.yml
 
 ## Security
 
-If you have discovered an issue with Snippety of a sensitive nature that could compromise the security of Snippety users, **please report it
+If you have discovered an issue with Vurse of a sensitive nature that could compromise the security of Vurse users, **please report it
 securely by sending a GPG-encrypted message instead of filing an issue on GitHub**. Please use the following key and send your report to
 [tony@tabolario.com](mailto:tony@tabolario.com).
 
-[https://raw.githubusercontent.com/tabolario/snippety/master/tabolario.gpg][tabolario-gpg]
+[https://raw.githubusercontent.com/tabolario/vurse/master/tabolario.gpg][tabolario-gpg]
 
-[tabolario-gpg]: https://raw.githubusercontent.com/tabolario/snippety/master/tabolario.gpg
+[tabolario-gpg]: https://raw.githubusercontent.com/tabolario/vurse/master/tabolario.gpg
 
 The fingerprint of the key should be:
 
@@ -150,14 +150,14 @@ The fingerprint of the key should be:
 
 ## Contributing and reporting issues
 
-See [CONTRIBUTING.md][contributing-md] for full information on how to contribute or report issues to Snippety.
+See [CONTRIBUTING.md][contributing-md] for full information on how to contribute or report issues to Vurse.
 
-[contributing-md]: https://github.com/tabolario/snippety/blob/master/CONTRIBUTING.md
+[contributing-md]: https://github.com/tabolario/vurse/blob/master/CONTRIBUTING.md
 
 ## Release process
 
-Snippety follows [Semver 2.0.0](http://semver.org/spec/v2.0.0.html) for release versioning. The version number components X.Y.Z have
-the following meanings:
+Vurse follows [Semver 2.0.0](http://semver.org/spec/v2.0.0.html) for release versioning. The version number components X.Y.Z have the
+following meanings:
 
 * X for **Major** releases that may contain **backwards-incompatible** changes.
 * Y for **Minor** releases that may contain features, bug fixes, and **backwards-compatible** changes.
@@ -166,12 +166,12 @@ the following meanings:
 **Pre-release** versions like `X.Y.Z.alpha.0` and `X.Y.Z.beta.1` will be made before **Major**, and **Minor** versions. Pre-release versions
 are well-tested, but not as thoroughly as the versions that they precede.
 
-Whenever a new version is made, it will be tagged as a release on [GitHub Releases][snippety-releases]. Entries in
+Whenever a new version is made, it will be tagged as a release on [GitHub Releases][vurse-releases]. Entries in
 [CHANGELOG.md][changelog-md] will be made incrementally up to the release. An announcement will also be made on
 [Twitter][tabolario-twitter], [RubyFlow][rubyflow], [/r/ruby][ruby-subreddit] and [/r/rails][rails-subreddit].
 
-[snippety-releases]: https://github.com/tabolario/snippety/releases
-[changelog-md]: https://github.com/tabolario/snippety/blob/master/CHANGELOG.md
+[vurse-releases]: https://github.com/tabolario/vurse/releases
+[changelog-md]: https://github.com/tabolario/vurse/blob/master/CHANGELOG.md
 [tabolario-twitter]: https://twitter.com/tabolario
 [rubyflow]: http://rubyflow.com/
 [ruby-subreddit]: https://reddit.com/r/ruby

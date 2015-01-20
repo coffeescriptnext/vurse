@@ -3,4 +3,4 @@
 
 window.expect = chai.expect;
 
-//= require snippety
+//= require vurse

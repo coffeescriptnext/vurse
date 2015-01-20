@@ -1,0 +1,39 @@
+---
+default: &default
+  demo_mode: <%= ENV['VURSE_DEMO_MODE'] %>
+  devise_allow_unconfirmed_access_for: <%= ENV.fetch('VURSE_DEVISE_ALLOW_UNCONFIRMED_ACCESS_FOR', 7) %>
+  devise_invite_for: <%= ENV.fetch('VURSE_DEVISE_INVITE_FOR', 0) %>
+  devise_invitation_limit: <%= ENV['VURSE_DEVISE_INVITATION_LIMIT'] %>
+  devise_mailer_sender: <%= ENV.fetch('VURSE_DEVISE_MAILER_SENDER', 'admin@localhost') %>
+  devise_maximum_attempts: <%= ENV.fetch('VURSE_DEVISE_MAXIMUM_ATTEMPTS', 10) %>
+  devise_remember_for: <%= ENV.fetch('VURSE_DEVISE_REMEMBER_FOR', 30) %>
+  devise_reset_password_within: <%= ENV.fetch('VURSE_DEVISE_RESET_PASSWORD_WITHIN', 6 * 60) %>
+  devise_stretches: <%= ENV.fetch('VURSE_DEVISE_STRETCHES', 10) %>
+  devise_unlock_in: <%= ENV.fetch('VURSE_DEVISE_UNLOCK_IN', 60) %>
+  log_level: <%= ENV.fetch('VURSE_LOG_LEVEL', 'info') %>
+  log_root: <%= Rails.root.join('log') %>
+  log_stdout: <%= ENV['VURSE_LOG_STDOUT'] %>
+  registration_enabled: <%= ENV.fetch('VURSE_REGISTRATION_ENABLED', 'true') %>
+  serve_static_files: <%= ENV['VURSE_SERVE_STATIC_FILES'] %>
+  session_key: <%= ENV.fetch('VURSE_SESSION_KEY', '_VURSE_session') %>
+  email_delivery_method: <%= ENV.fetch('VURSE_EMAIL_DELIVERY_METHOD', 'sendmail') %>
+  smtp_address: <%= ENV['VURSE_SMTP_ADDRESS'] %>
+  smtp_authentication: <%= ENV['VURSE_SMTP_AUTHENTICATION'] %>
+  smtp_domain: <%= ENV['VURSE_SMTP_DOMAIN'] %>
+  smtp_password: <%= ENV['VURSE_SMTP_PASSWORD'] %>
+  smtp_port: <%= ENV['VURSE_SMTP_PORT'] %>
+  smtp_user_name: <%= ENV['VURSE_SMTP_USERNAME'] %>
+  tld_host: <%= ENV.fetch('VURSE_TLD_HOST', 'localhost') %>
+  tld_protocol: <%= ENV.fetch('VURSE_TLD_PROTOCOL', 'http') %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  tld_host: <%= ENV.fetch('VURSE_TLD_HOST', 'VURSE.test') %>
+
+production:
+  <<: *default
+  log_level: <%= ENV.fetch('VURSE_LOG_LEVEL', 'debug') %>
+  tld_protocol: <%= ENV.fetch('VURSE_TLD_PROTOCOL', 'https') %>

@@ -9,7 +9,7 @@ require 'sprockets/railtie'
 
 Bundler.require(*Rails.groups)
 
-module Snippety
+module Vurse
   module VERSION
     MAJOR = 1
     MINOR = 0
@@ -21,21 +21,21 @@ module Snippety
 
   class Application < Rails::Application
     # Snippety configuration
-    config.snippety = config_for(:snippety).deep_symbolize_keys
+    config.vurse = config_for(:vurse).deep_symbolize_keys
 
     # General Rails configuration
-    config.force_ssl = true if config.snippety[:tld_protocol] == 'https'
+    config.force_ssl = true if config.vurse[:tld_protocol] == 'https'
     config.log_formatter = Logger::Formatter.new
-    config.log_level = config.snippety[:log_level].to_sym
+    config.log_level = config.vurse[:log_level].to_sym
 
-    if config.snippety[:log_stdout].present?
+    if config.vurse[:log_stdout].present?
       config.logger = Logger.new(STDOUT)
     else
-      config.logger = Logger.new("#{config.snippety[:log_root]}/#{Rails.env}.rails.log")
+      config.logger = Logger.new("#{config.vurse[:log_root]}/#{Rails.env}.rails.log")
     end
 
     config.before_initialize do
-      STDOUT.sync if config.snippety[:log_stdout].present?
+      STDOUT.sync if config.vurse[:log_stdout].present?
     end
 
     # Rack::Attack configuration
@@ -44,26 +44,26 @@ module Snippety
     # Rack::Cors configuration
     config.middleware.insert_before 'ActionDispatch::Static', 'Rack::Cors' do
       allow do
-        origins Rails.configuration.snippety[:tld_host]
+        origins Rails.configuration.vurse[:tld_host]
         resource '/api/*', headers: :any, methods: %i(get patch post put delete options)
       end
     end
 
     # ActionMailer configuration
     config.action_mailer.default_url_options = {
-      host:     Rails.configuration.snippety[:tld_host],
-      protocol: Rails.configuration.snippety[:tld_protocol]
+      host:     Rails.configuration.vurse[:tld_host],
+      protocol: Rails.configuration.vurse[:tld_protocol]
     }
 
-    config.action_mailer.delivery_method = config.snippety[:email_delivery_method].to_sym
+    config.action_mailer.delivery_method = config.vurse[:email_delivery_method].to_sym
     if config.action_mailer.delivery_method == :smtp
       config.action_mailer.smtp_settings = {
-        user_name:      config.snippety[:smtp_user_name],
-        password:       config.snippety[:smtp_password],
-        address:        config.snippety[:smtp_address],
-        domain:         config.snippety[:smtp_domain],
-        port:           config.snippety[:smtp_port].try(:to_i),
-        authentication: config.snippety[:smtp_authentication].try(:to_sym)
+        user_name:      config.vurse[:smtp_user_name],
+        password:       config.vurse[:smtp_password],
+        address:        config.vurse[:smtp_address],
+        domain:         config.vurse[:smtp_domain],
+        port:           config.vurse[:smtp_port].try(:to_i),
+        authentication: config.vurse[:smtp_authentication].try(:to_sym)
       }
     end
 

@@ -5,7 +5,7 @@ Rails.application.configure do
   config.eager_load = true
   config.force_ssl = true
   config.log_level = :debug
-  config.serve_static_files = config.snippety[:serve_static_files].present?
+  config.serve_static_files = config.vurse[:serve_static_files].present?
 
   # ActionController configuration
   config.action_controller.perform_caching = true
