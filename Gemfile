@@ -71,7 +71,7 @@ group :test do
   gem 'coveralls', '~> 0.7', require: false
   gem 'database_cleaner', '~> 1.4', require: false
   gem 'json_spec', '~> 1.1', require: false
-  gem 'rspec-rails', '~> 3.1', require: false
+  gem 'rspec-rails', '~> 3.2', require: false
   gem 'simplecov', '~> 0.9', require: false
   gem 'simplecov-console', '~> 0.2', require: false
 end
