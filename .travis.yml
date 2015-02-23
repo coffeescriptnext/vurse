@@ -25,6 +25,8 @@ env:
 addons:
   postgresql: 9.4
 notifications:
+  email:
+    - tony@tabolario.com
   webhooks:
     urls:
       # Gitter
