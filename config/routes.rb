@@ -1,5 +1,5 @@
 Rails.application.routes.tap do |routes|
-  app_config = Rails.configuration.snippety
+  app_config = Rails.configuration.vurse
 
   routes.default_url_options = {
     host:     app_config[:tld_host],
