@@ -101,7 +101,7 @@ end
 group :lint do
   gem 'inch', '~> 0.5'
   gem 'jshintrb', '~> 0.2'
-  gem 'rubocop', '~> 0.28'
+  gem 'rubocop', '~> 0.29'
   gem 'scss-lint', '~> 0.32'
   gem 'therubyracer', '~> 0.12'
 end
