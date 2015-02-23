@@ -80,7 +80,7 @@ group :development, :test do
   gem 'bullet', '~> 4.14'
   gem 'factory_girl_rails', '~> 4.5', require: false
   gem 'faker', '~> 1.4', require: false
-  gem 'poltergeist', '~> 1.5', require: false
+  gem 'poltergeist', '~> 1.6', require: false
   gem 'teaspoon', '~> 0.8'
 end
 
