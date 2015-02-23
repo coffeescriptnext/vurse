@@ -61,7 +61,7 @@ gem 'unicorn', '~> 4.8', require: false
 
 group :development do
   gem 'annotate', '~> 2.6'
-  gem 'spring', '~> 1.2', require: false
+  gem 'spring', '~> 1.3', require: false
   gem 'spring-commands-rspec', '~> 1.0', require: false
   gem 'web-console', '~> 2.0'
 end
