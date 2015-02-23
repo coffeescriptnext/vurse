@@ -10,8 +10,6 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   Coveralls::SimpleCov::Formatter
 ]
 SimpleCov.start 'rails' do
-  coverage_dir 'coverage/ruby'
-
   add_filter 'vendor/bundle'
 
   add_group 'Interactors', 'app/interactors'
