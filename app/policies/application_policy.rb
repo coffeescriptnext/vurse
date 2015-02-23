@@ -1,5 +1,12 @@
 # Default admin-only authorization policy.
-class ApplicationPolicy < Struct.new(:user, :resource)
+class ApplicationPolicy
+  attr_accessor :user, :resource
+
+  def initialize(user, resource)
+    @user = user
+    @resource = resource
+  end
+
   def create?
     admin?
   end
