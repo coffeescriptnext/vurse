@@ -29,12 +29,11 @@ begin
     RSpec::Core::RakeTask.new(:unit) do |t|
       t.pattern = "spec/{#{(COMPONENTS - %w(features)).join(',')}}/**/*_spec.rb"
     end
-
-    desc 'Run JavaScript tests'
-    task javascripts: :teaspoon
   end
 
   desc 'Run all tests'
-  task spec: %w(spec:unit spec:features spec:javascripts)
+  RSpec::Core::RakeTask.new(:spec) do |t|
+    t.pattern = "spec/{#{COMPONENTS.join(',')}}/**/*_spec.rb"
+  end
 rescue LoadError # rubocop:disable HandleExceptions
 end
