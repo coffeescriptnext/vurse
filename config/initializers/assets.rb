@@ -1,9 +1,9 @@
 Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w(
-  snippety.css
-  snippety-authentication.css
-  snippety-email.css
-  snippety.js
+  vurse.css
+  vurse-authentication.css
+  vurse-email.css
+  vurse.js
 )
 
 if Rails.env.development? || Rails.env.test?
