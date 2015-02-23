@@ -57,10 +57,6 @@ Generate local documentation with YARD (output to the `doc` directory):
 
 * Linux or Mac OS X (development on Windows is *not* supported)
 * Runtime requirements as detailed above
-* [PhantomJS][phantomjs] (install for your platform by following the instructions at [phantomjs.org][phantomjs-install])
-
-[phantomjs]: http://phantomjs.org/
-[phantomjs-install]: http://phantomjs.org/download.html
 
 ### Setup
 
@@ -148,6 +144,10 @@ The fingerprint of the key should be:
 
     6EED 2359 968F 7734 06A4 AB56 D90E 487A 60F1 0579
 
+If you use [Keybase](https://keybase.io), you can also send me a signed, encrypted message with:
+
+    $ keybase encrypt tabolario -s -m 'Your message'
+
 ## Contributing and reporting issues
 
 See [CONTRIBUTING.md][contributing-md] for full information on how to contribute or report issues to Vurse.
@@ -184,7 +184,7 @@ that version.
 
 &copy; 2015 Tony Burns
 
-**MIT License**
+### MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the
 "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish,
