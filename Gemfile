@@ -42,7 +42,7 @@ gem 'wicked', '~> 1.1'
 
 # Asset dependencies
 gem 'ace-rails-ap', '~> 3.0'
-gem 'autoprefixer-rails', '~> 5.0'
+gem 'autoprefixer-rails', '~> 5.1'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'bootstrap-switch-rails', '~> 3.3'
 gem 'font-awesome-sass', '~> 4.2'
