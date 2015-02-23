@@ -12,16 +12,19 @@ rescue LoadError
 end
 
 Pry.config.prompt_name = begin
-  environment_name = case ENV['RAILS_ENV']
-  when 'development'
-    'development'.colorize(:light_blue).underline
-  when 'test'
-    ENV['RAILS_ENV'].colorize(:light_blue).underline
-  when 'production'
-    ENV['RAILS_ENV'].colorize(:red).underline
-  else
-    'development'.colorize(:light_blue).underline
-  end
+  environment_color =
+    case ENV['RAILS_ENV']
+    when 'development', 'test'
+      :light_blue
+    when 'production'
+      :red
+    when 'staging'
+      :yellow
+    else
+      :light_blue
+    end
 
-  "#{'vurse'.bold} [#{environment_name}] "
+  environment_name = "[#{ENV['RAILS_ENV']}]".colorize(environment_color).bold
+
+  "#{'Vurse'.bold} #{environment_name} $ "
 end
