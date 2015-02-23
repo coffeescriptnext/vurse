@@ -2,21 +2,23 @@ source 'https://rubygems.org'
 
 ruby '2.2.0'
 
+# Load dotenv-rails first for gems that offer ENV configuration
 gem 'dotenv-rails', '~> 1.0', groups: %i(development)
 
-gem 'ace-rails-ap', '~> 3.0'
+# Core Rails dependencies
+gem 'rails', '~> 4.2.0'
+gem 'pg', '~> 0.18'
+gem 'responders', '~> 2.0'
+
+# General runtime dependencies
 gem 'active_model_serializers', '~> 0.9'
-gem 'autoprefixer-rails', '~> 5.0'
-gem 'bootstrap-sass', '~> 3.3'
-gem 'bootstrap-switch-rails', '~> 3.3'
+gem 'cocoon', '~> 1.2'
 gem 'devise', '~> 3.4'
 gem 'devise_invitable', '~> 1.4'
 gem 'diffy', '~> 3.0'
 gem 'email_validator', '~> 1.5'
 gem 'finishing_moves', '~> 0.1'
-gem 'font-awesome-sass', '~> 4.2'
 gem 'friendly_id', '~> 5.1'
-gem 'gemoji', '~> 2.1'
 gem 'github-linguist', '~> 4.2'
 gem 'github-markdown', '~> 0.6'
 gem 'github-markup', '~> 1.3'
@@ -25,27 +27,38 @@ gem 'html-pipeline', '~> 1.11'
 gem 'interactor', '~> 3.1'
 gem 'kaminari', '~> 0.16'
 gem 'lograge', '~> 0.3'
-gem 'momentjs-rails', '~> 2.9'
 gem 'paper_trail', '~> 3.0'
-gem 'pry-rails', '~> 0.3'
 gem 'pundit', '~> 0.3'
 gem 'pygments.rb', '~> 0.6'
+gem 'que', '~> 0.9'
 gem 'rack-attack', '~> 4.2'
 gem 'rack-cors', '~> 0.3', require: 'rack/cors'
-gem 'rails', '~> 4.2.0'
-gem 'responders', '~> 2.0'
 gem 'roadie-rails', '~> 1.0'
-gem 'pg', '~> 0.18'
-gem 'que', '~> 0.9'
 gem 'sanitize', '~> 3.1'
 gem 'sass-rails', '~> 5.0'
 gem 'secure_headers', '~> 1.4'
 gem 'uglifier', '~> 2.7'
-gem 'jquery-rails', '~> 4.0'
-gem 'turbolinks', '~> 2.5'
-gem 'unicorn', '~> 4.8'
 gem 'wicked', '~> 1.1'
+
+# Asset dependencies
+gem 'ace-rails-ap', '~> 3.0'
+gem 'autoprefixer-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3'
+gem 'bootstrap-switch-rails', '~> 3.3'
+gem 'font-awesome-sass', '~> 4.2'
+gem 'gemoji', '~> 2.1'
+gem 'jquery-rails', '~> 4.0'
+gem 'momentjs-rails', '~> 2.9'
+gem 'selectize-rails', '~> 0.11'
+gem 'turbolinks', '~> 2.5'
 gem 'zurb-ink-rails', '~> 1.0'
+
+# Utilities
+gem 'pry-rails', '~> 0.3'
+
+# Rack servers
+gem 'puma', '~> 2.11', require: false
+gem 'unicorn', '~> 4.8', require: false
 
 group :development do
   gem 'annotate', '~> 2.6'
