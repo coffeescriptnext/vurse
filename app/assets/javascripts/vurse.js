@@ -3,4 +3,3 @@
 //= require bootstrap
 //= require bootstrap-switch
 //= require moment
-//= require turbolinks

@@ -50,7 +50,6 @@ gem 'gemoji', '~> 2.1'
 gem 'jquery-rails', '~> 4.0'
 gem 'momentjs-rails', '~> 2.9'
 gem 'selectize-rails', '~> 0.11'
-gem 'turbolinks', '~> 2.5'
 gem 'zurb-ink-rails', '~> 1.0'
 
 # Utilities
