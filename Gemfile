@@ -36,7 +36,7 @@ gem 'rack-cors', '~> 0.3', require: 'rack/cors'
 gem 'roadie-rails', '~> 1.0'
 gem 'sanitize', '~> 3.1'
 gem 'sass-rails', '~> 5.0'
-gem 'secure_headers', '~> 1.4'
+gem 'secure_headers', '~> 2.0'
 gem 'uglifier', '~> 2.7'
 gem 'wicked', '~> 1.1'
 
