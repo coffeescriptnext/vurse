@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/tabolario/vurse.svg?branch=master)][build-status]
 [![Code Climate](https://codeclimate.com/github/tabolario/vurse/badges/gpa.svg)][code-climate]
 [![Coverage Status](https://coveralls.io/repos/tabolario/vurse/badge.svg)][coverage-status]
-[![Inline docs](http://inch-ci.org/github/tabolario/vurse.svg?branch=master&style=flat)][inline-docs]
+[![Inline docs](http://inch-ci.org/github/tabolario/vurse.svg?branch=master)][inline-docs]
 
 [dependency-status]: https://gemnasium.com/tabolario/vurse
 [build-status]: https://travis-ci.org/tabolario/vurse
