@@ -90,7 +90,7 @@ group :console do
 end
 
 group :debugger do
-  gem 'pry-byebug', '~> 2.0'
+  gem 'pry-byebug', '~> 3.0'
 end
 
 group :docs do
