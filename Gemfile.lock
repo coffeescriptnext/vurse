@@ -421,7 +421,7 @@ DEPENDENCIES
   rack-attack (~> 4.2)
   rack-cors (~> 0.3)
   rails (~> 4.2.0)
-  responders (~> 2.0)
+  responders (~> 2.1)
   roadie-rails (~> 1.0)
   rspec-rails (~> 3.1)
   rubocop (~> 0.29)

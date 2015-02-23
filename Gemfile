@@ -8,7 +8,7 @@ gem 'dotenv-rails', '~> 1.0', groups: %i(development)
 # Core Rails dependencies
 gem 'rails', '~> 4.2.0'
 gem 'pg', '~> 0.18'
-gem 'responders', '~> 2.0'
+gem 'responders', '~> 2.1'
 
 # General runtime dependencies
 gem 'active_model_serializers', '~> 0.9'
