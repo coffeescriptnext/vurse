@@ -1,9 +1,9 @@
 # Vurse
 
-[![Dependency Status](https://img.shields.io/gemnasium/tabolario/vurse.svg?style=flat)][dependency-status]
-[![Build Status](https://img.shields.io/travis/tabolario/vurse.svg?style=flat)][build-status]
-[![Code Climate](https://img.shields.io/codeclimate/github/tabolario/vurse.svg?style=flat)][code-climate]
-[![Coverage Status](https://img.shields.io/coveralls/tabolario/vurse.svg?style=flat)][coverage-status]
+[![Dependency Status](https://gemnasium.com/tabolario/vurse.svg)][dependency-status]
+[![Build Status](https://travis-ci.org/tabolario/vurse.svg?branch=master)][build-status]
+[![Code Climate](https://codeclimate.com/github/tabolario/vurse/badges/gpa.svg)][code-climate]
+[![Coverage Status](https://coveralls.io/repos/tabolario/vurse/badge.svg)][coverage-status]
 [![Inline docs](http://inch-ci.org/github/tabolario/vurse.svg?branch=master&style=flat)][inline-docs]
 
 [dependency-status]: https://gemnasium.com/tabolario/vurse
