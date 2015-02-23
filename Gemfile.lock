@@ -288,7 +288,7 @@ GEM
       ruby-progressbar (~> 1.4)
     ruby-progressbar (1.7.1)
     rugged (0.22.0b5)
-    sanitize (3.1.0)
+    sanitize (3.1.2)
       crass (~> 1.0.1)
       nokogiri (>= 1.4.4)
       nokogumbo (= 1.2.0)
