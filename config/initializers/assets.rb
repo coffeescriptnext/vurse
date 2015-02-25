@@ -2,6 +2,8 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w(
   vurse.css
   vurse-authentication.css
+  vurse-editor.css
+  vurse-editor.js
   vurse-email.css
   vurse.js
 )

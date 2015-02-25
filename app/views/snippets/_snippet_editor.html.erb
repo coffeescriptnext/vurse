@@ -1,0 +1,8 @@
+<%- content_for :stylesheets do %>
+  <%= stylesheet_link_tag('vurse', media: 'all', 'data-turbolinks-track': true) %>
+  <%= stylesheet_link_tag('vurse-editor', media: 'all', 'data-turbolinks-track': true) %>
+<% end -%>
+<%- content_for :javascripts do %>
+  <%= javascript_include_tag('vurse', 'data-turbolinks-track': true) %>
+  <%= javascript_include_tag('vurse-editor', 'data-turbolinks-track': true) %>
+<% end -%>

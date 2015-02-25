@@ -1,14 +1,18 @@
 <%= render partial: 'snippets/snippet_editor' %>
 <div class="container">
   <div class="col-lg-12">
-    <%= form_for snippet, url: snippets_path(current_user.username), html: { class: 'snippet-form' } do |f| %>
+    <header class="page-header">
+      <h1>Editing <%= snippet.name %></h1>
+    </header>
+    <p><small><%= friendly_timestamp(snippet) %></small></p>
+    <%= form_for snippet, url: snippet_path(snippet.owner.username, snippet), html: { method: :patch, class: 'snippet-form' } do |f| %>
       <%- snippet.errors.full_messages.each do |message| -%><p><%= message %></p><% end -%>
 
       <%= render partial: 'snippets/snippet_fields', locals: { f: f } %>
 
       <div class="form-group form-inline">
         <%= link_to_add_association 'Add file', f, :pieces, class: 'btn btn-default', 'data-association-insertion-node': '.snippet-pieces', 'data-association-insertion-method': 'append' %>
-        <%= f.submit 'Create snippet', class: 'btn btn-primary' %>
+        <%= f.submit 'Update snippet', class: 'btn btn-primary' %>
       </div>
     <% end %>
   </div>

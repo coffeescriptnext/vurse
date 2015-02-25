@@ -1,0 +1,26 @@
+<article id="<%= snippet.id %>" class="container snippet">
+  <div class="col-lg-12">
+    <header class="page-header">
+      <h1><%= link_to snippet.owner.username, profile_path(snippet.owner.username) %>&nbsp;/&nbsp;<%= link_to snippet_path(snippet.owner.username, snippet), title: "Permalink to #{snippet.name}" do %><%= snippet.name %>&nbsp;<%= icon 'link' %><% end %></h1>
+      <ul class="actions">
+        <li><%= link_to edit_snippet_path(snippet.owner.username, snippet), class: 'btn btn-default' do %><%= icon 'pencil' %>&nbsp;Edit<% end %></li>
+        <li><%= link_to snippet_path(snippet.owner.username, snippet), class: 'btn btn-danger', 'data-method': :delete, 'data-confirm': 'Are you sure?' do %><%= icon 'trash' %>&nbsp;Delete<% end %></li>
+      </ul>
+    </header>
+    <p><small><%= friendly_timestamp(snippet) %></small></p>
+    <p><%= snippet.description %></p>
+    <%- snippet.pieces.each do |piece| %>
+      <section id="<%= piece.id %>" class="panel panel-default snippet-piece">
+        <header class="panel-heading">
+          <h1 class="panel-title"><%= link_to snippet_path(snippet.owner.username, snippet, anchor: piece.id), title: 'Permalink' do %><%= piece.name %>&nbsp;<%= icon 'link' %><% end %></h1>
+          <ul class="actions">
+            <li><%= link_to 'Raw', snippet_raw_piece_path(snippet.owner.username, snippet, piece, piece.name), class: 'btn btn-default btn-sm' %></li>
+          </ul>
+        </header>
+        <div class="panel-body">
+          <pre><%=raw piece.body %></pre>
+        </div>
+      </section>
+    <% end -%>
+  </div>
+</article>

@@ -49,6 +49,15 @@ Rails.application.routes.tap do |routes|
       end
     end
 
+    get '/recent' => 'snippets#index', format: false
+
     root to: 'snippets#new', format: false
+
+    resources :snippets, path: '/:username', only: %i(create show edit update destroy) do
+      get '/raw' => 'raw_pieces#index', as: :raw
+      get '/raw/:piece_id(/:name)' => 'raw_pieces#show', as: :raw_piece
+    end
+
+    get '/:username' => 'profiles#show', format: false, as: :profile
   end
 end

@@ -1,0 +1,20 @@
+@import 'bootstrap/variables';
+@import 'selectize';
+@import 'selectize.bootstrap3';
+
+.panel {
+  .editor-value {
+    display: none;
+  }
+
+  // scss-lint:disable SelectorFormat
+  .ace_editor {
+    border: 0;
+    border-bottom-left-radius: $panel-border-radius;
+    border-bottom-right-radius: $panel-border-radius;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    height: 500px;
+    margin-bottom: 0;
+  }
+}

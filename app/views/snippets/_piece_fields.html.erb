@@ -1,0 +1,11 @@
+<div class="panel panel-default nested-fields snippet-piece">
+  <div class="panel-heading form-inline">
+    <%= link_to_remove_association f, class: 'remove-snippet-piece' do %><%= icon('close') %>&nbsp;<span class="sr-only">Remove</span><% end %>
+    <div class="form-group">
+      <%= f.label :name, class: 'sr-only' %>
+      <%= f.text_field :name, placeholder: 'Name', class: 'form-control' %>
+    </div>
+  </div>
+  <%= f.text_area :body, class: 'form-control editor-value' %>
+  <div class="editor"></div>
+</div>

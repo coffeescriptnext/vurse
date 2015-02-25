@@ -11,21 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114211933) do
+ActiveRecord::Schema.define(version: 20150119090933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
+  create_table "pieces", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.uuid     "snippet_id", null: false
+    t.string   "name",       null: false
+    t.text     "body",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "pieces", ["snippet_id"], name: "pieces_ix_snippet_id", using: :btree
+
   create_table "que_jobs", primary_key: "queue", force: :cascade do |t|
-    t.integer  "priority",    limit: 2, default: 100,                   null: false
-    t.datetime "run_at",                default: '2015-01-14 18:42:33', null: false
-    t.integer  "job_id",      limit: 8, default: 0,                     null: false
-    t.text     "job_class",                                             null: false
-    t.json     "args",                  default: [],                    null: false
-    t.integer  "error_count",           default: 0,                     null: false
+    t.integer  "priority",    limit: 2, default: 100,                                        null: false
+    t.datetime "run_at",                default: "now()",                                    null: false
+    t.integer  "job_id",      limit: 8, default: "nextval('que_jobs_job_id_seq'::regclass)", null: false
+    t.text     "job_class",                                                                  null: false
+    t.json     "args",                  default: [],                                         null: false
+    t.integer  "error_count",           default: 0,                                          null: false
     t.text     "last_error"
   end
+
+  create_table "snippets", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.uuid     "owner_id",    null: false
+    t.string   "name",        null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "snippets", ["owner_id"], name: "snippets_ix_owner_id", using: :btree
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name",                   default: ""

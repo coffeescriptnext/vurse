@@ -6,6 +6,7 @@ SecureHeaders::Configuration.configure do |config|
   config.x_download_options = 'noopen'
 
   config.csp = {
-    default_src: 'https: self'
+    default_src: "https: 'self'",
+    style_src:   "https: 'self' 'unsafe-inline'"
   }
 end

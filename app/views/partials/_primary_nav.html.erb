@@ -5,12 +5,14 @@
     </div>
 
     <ul class="nav navbar-nav navbar-left">
+      <li class="<%= 'active' if controller_name == 'snippets' && action_name == 'index' %>"><%= link_to 'All Snippets', recent_path %></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-      <li><p class="navbar-text"><%= current_user.username %></p></li>
-      <li><%= link_to edit_user_registration_path do %><i class="fa fa-cogs"></i><span class="sr-only">&nbsp;&nbsp;Settings</span><% end -%></li>
-      <li><%= link_to destroy_user_session_path do %><i class="fa fa-sign-out"></i>&nbsp;<span class="sr-only">Log out</span><% end -%></li>
+      <li><%= link_to current_user.username, profile_path(current_user.username), title: 'Your Profile' %></li>
+      <li><%= link_to root_path, title: 'New Snippet' do %><%= icon('plus') %><span class="sr-only">&nbsp;&nbsp;New Snippet</span><% end %></li>
+      <li><%= link_to edit_user_registration_path, title: 'Settings' do %><i class="fa fa-cogs"></i><span class="sr-only">&nbsp;&nbsp;Settings</span><% end -%></li>
+      <li><%= link_to destroy_user_session_path, title: 'Log Out' do %><i class="fa fa-sign-out"></i>&nbsp;<span class="sr-only">Log out</span><% end -%></li>
     </ul>
   </div>
 </nav>

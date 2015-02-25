@@ -27,6 +27,8 @@ begin
         undef:    true,
 
         predef: {
+          '$'        => true,
+          'ace'      => true,
           'chai'     => true,
           'describe' => true,
           'expect'   => true,

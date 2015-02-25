@@ -1,0 +1,54 @@
+<article id="<%= user.id %>" class="container profile">
+  <div class="col-lg-12">
+    <header class="page-header">
+      <h1><%= user == current_user ?  'Your Snippets' : user.username %></h1>
+      <ul class="actions">
+        <li>
+          <div class="dropdown">
+            <button id="snippets_sort_button" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sort: <%= sort_label_for(current_sort_key, current_sort_direction) %>
+              <%= icon('caret') %>
+            </button>
+
+            <ul class="dropdown-menu" role="menu" aria-labelledby="snippets_sort_button">
+              <li><%= link_to sort_label_for(:created_at, :desc), profile_path(user.username) %></li>
+              <li><%= link_to sort_label_for(:created_at, :asc), profile_path(user.username, sort: 'created_at:asc') %></li>
+              <li><%= link_to sort_label_for(:updated_at, :desc), profile_path(user.username, sort: 'updated_at:desc') %></li>
+              <li><%= link_to sort_label_for(:updated_at, :asc), profile_path(user.username, sort: 'updated_at:asc') %></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </header>
+  </div>
+  <div class="col-lg-9">
+    <%- unless snippets.empty? %>
+      <%- snippets.each do |snippet| %>
+        <article id="snippet_<%= snippet.id %>" class="panel panel-default snippet">
+          <heading class="panel-heading">
+            <h1 class="panel-title"><%= link_to user.username, profile_path(user.username) %> / <%= link_to render_sanitized(snippet.name), snippet_path(user.username, snippet.id) %></h1>
+            <ul class="additional-info">
+              <li><%= icon('file-code-o') %>&nbsp;<%= pluralize(snippet.pieces.size, 'piece') %></li>
+            </ul>
+          </heading>
+          <div class="panel-body">
+            <p><small><%= friendly_timestamp(snippet) %></small></p>
+            <%- if snippet.description.present? %><p><small><%= render_markdown(snippet.description) %></small></p><% end -%>
+            <pre><%= truncate(snippet.pieces.first.body, length: 256) %></pre>
+          </div>
+        </article>
+      <% end -%>
+      <%= paginate snippets %>
+    <% else %>
+      <p>Nothing here yet.</p>
+    <% end -%>
+  </div>
+  <div class="col-lg-3">
+    <div class="list-group snippet-filters">
+      <%= link_to profile_path(user.username), class: ['list-group-item', (params[:filter].blank? ? 'active' : nil)].compact.join(' ') do %>
+        <span class="badge"><%= current_user.snippets.size %></span>
+        All snippets
+      <% end %>
+    </div>
+  </div>
+</article>

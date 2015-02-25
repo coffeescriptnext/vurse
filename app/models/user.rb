@@ -57,6 +57,8 @@
 class User < ActiveRecord::Base
   devise :confirmable, :database_authenticatable, :invitable, :lockable, :recoverable, :registerable, :rememberable, :trackable
 
+  has_many :snippets, foreign_key: :owner_id, dependent: :destroy, inverse_of: :owner
+
   attr_accessor :login
 
   validates :email, email: true, presence: true

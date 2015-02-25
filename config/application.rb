@@ -22,6 +22,7 @@ module Vurse
   class Application < Rails::Application
     # Snippety configuration
     config.vurse = config_for(:vurse).deep_symbolize_keys
+    config.vurse[:languages] = JSON.parse(File.read(Rails.root.join('config/languages.json'))).deep_symbolize_keys
 
     # General Rails configuration
     config.force_ssl = true if config.vurse[:tld_protocol] == 'https'

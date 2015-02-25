@@ -57,11 +57,17 @@
 FactoryGirl.define do
   factory :user do
     email { Faker::Internet.email }
-    username { Faker::Internet.user_name(nil, %w(-_)) }
+    username { Faker::Internet.user_name(nil, %w(-)) }
     name { Faker::Name.name }
     password 'secret123'
     password_confirmation 'secret123'
     created_at { Faker::Date.backward }
+
+    trait :with_snippets do
+      after :create do |user|
+        create_list(:snippet, rand(50), :with_description, :with_pieces, owner: user)
+      end
+    end
 
     factory :confirmed_user do
       after :build do |user|
